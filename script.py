@@ -3,14 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import GradientBoostingRegressor
-import sys
 import os
 import streamlit as st
 
-sys.path.append(os.path.abspath('..'))  # Adds the parent directory to sys.path
-
 def load_data():
-    data = pd.read_excel("C:\\Users\\chiar\\OneDrive\\Desktop\\PROJECT SI\\Real estate valuation data set.xlsx")
+    data = pd.read_excel(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Real estate valuation data set.xlsx"))
     #data.sample(3)
     #data.isnull().sum()
     data = data.rename(columns={'Y house price of unit area': 'Price', 
